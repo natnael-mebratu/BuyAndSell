@@ -1,0 +1,42 @@
+﻿@model Buy_And_Sell.Models.Seller
+
+@{
+    ViewData["Title"] = "SellerInfo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>SellerInfo</h1>
+
+<div>
+    <h4>Seller</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.FullName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FullName)
+        </dd>
+ @*      <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Email)
+        </dd>*@
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PhoneNumber)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PhoneNumber)
+        </dd>
+    </dl>
+</div>
+<div>
+   @* <a asp-action="Edit" asp-route-id="@Model.SellerId">Edit</a> *@
+   
+        <a asp-action="VehicleIndexH" class="btn btn-success">Vehicle List</a>
+    <a asp-action="HouseIndexH" class="btn btn-dark">House List</a>
+        <a asp-action="Index" class="btn btn-danger">Home Page</a>
+
+
+</div>

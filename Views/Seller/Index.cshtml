@@ -1,0 +1,66 @@
+﻿@model Buy_And_Sell.Models.Seller
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+    @if (Context.User.Identity.IsAuthenticated)
+    {
+     @*  <form method="post" asp-action="GoogleResponse">
+           <input asp-for="na"
+       </form>
+     *@
+            <h1>Hello Dear <b>@User.Identity.Name</b>, WELCOME TO 'BUY AND SELL'</h1>
+            <h3>  PLEASE CHOOSE WHICH PROPERTY YOU WOULD LIKE TO SELL</h3>
+         <div>
+             <form method="post" asp-action="Index">
+                 <input hidden asp-for="FullName" value="@User.Identity.Name"/>
+            <input hidden asp-for="Email" value="@User.Claims.FirstOrDefault(c => c.Type == "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress")"/>
+                <div class="form-group row">
+                    <div class="col-4">
+                        <p>please enter your PhoneNumber</p>
+                        <label asp-for="PhoneNumber"></label>
+                    </div>
+                    <br><br>
+                    <div class="col-8">
+                        <input asp-for="PhoneNumber" class="form-control" />
+                        <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                    </div>
+
+                </div>
+        <input type="submit" class="btn btn-info w-50" value="Vehicle"/>
+            </form>
+
+        <br><br>
+        <form method="post" asp-action="IndexH">
+            <input hidden asp-for="FullName" value="@User.Identity.Name" />
+            <input hidden asp-for="Email" value="@User.Claims.FirstOrDefault(c => c.Type == "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress")" />
+            <div class="form-group row">
+                <div class="col-4">
+                    <p>please enter your PhoneNumber</p>
+                    <label asp-for="PhoneNumber"></label>
+                </div>
+                <br><br>
+                <div class="col-8">
+                    <input asp-for="PhoneNumber" class="form-control" />
+                    <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                </div>
+
+            </div>
+            <input type="submit" class="btn btn-info w-50" value="House" />
+        </form>
+        </div>
+        <br><br>
+        <br><br>
+        <div>
+            <a asp-controller="Seller" asp-action="Logout" class="btn btn-danger w-40 center">Logout</a>
+        </div>
+    }
+    else
+    {
+       <h1>WELCOME TO 'BUY AND SELL', PLEASE SIGNUP WITH YOUR GOOGLE ACCOUNT TO SELL YOUR PROPERTIES</h1>
+        <p><a asp-area="" asp-controller="Seller" asp-action="Login" class="btn btn-success">Login</a></p>
+    }
+
+

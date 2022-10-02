@@ -1,0 +1,146 @@
+﻿@model Buy_And_Sell.Models.House
+@{
+    ViewData["Title"] = "HouseEdit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>HouseEdit</h1>
+
+<form method="post" asp-action="HouseEdit" enctype="multipart/form-data">
+    <input asp-for="HouseId" hidden />
+    <div class="border p-3">
+
+        <div class="form-group row">
+            <h2 class="text-info pl-3">Edit @Model.Type</h2>
+        </div>
+        <div class="row">
+            <div class="col-8">
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="Type"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="Type" class="form-control" />
+                        <span asp-validation-for="Type" class="text-danger"></span>
+                    </div>
+
+                </div>
+                <div class="form-group row">
+
+                    <div class="col-4">
+                        <label asp-for="Size"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="Size" class="form-control" />
+                        <span asp-validation-for="Size" class="text-danger"></span>
+                    </div>
+
+                </div>
+
+                <div class="form-group row">
+
+                    <div class="col-4">
+                        <label asp-for="NumberOfBedRooms"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="NumberOfBedRooms" class="form-control" />
+                        <span asp-validation-for="NumberOfBedRooms" class="text-danger"></span>
+                    </div>
+
+                </div>
+
+                <div class="form-group row">
+
+                    <div class="col-4">
+                        <label asp-for="Location"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="Location" class="form-control" />
+                        <span asp-validation-for="Location" class="text-danger"></span>
+                    </div>
+
+                </div>
+
+                                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="Level"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="Level" class="form-control" />
+                        <span asp-validation-for="Level" class="text-danger"></span>
+                    </div>
+
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="Price"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="Price" class="form-control" />
+                        <span asp-validation-for="Price" class="text-danger"></span>
+                    </div>
+
+                </div>
+
+                <div class="form-group row">
+
+                    <div class="col-4">
+                        <label asp-for="Discription"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="Discription" class="form-control" />
+                        <span asp-validation-for="Discription" class="text-danger"></span>
+                    </div>
+
+                </div>
+
+
+                <div class="form-group row">
+
+                    <div class="col-4">
+                        <label asp-for="Image"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="Image" class="form-control" value="@Model.Image" />
+                        <img src="~/Images/@Model.Image" class="rounded-circle" width="50" height="50" asp-append-version="true" />
+                        <span asp-validation-for="Image" class="text-danger"></span>
+                    </div>
+
+                </div>
+
+                <br /><br />
+
+                <div class="form-group row">
+                    <div class="col-8 offset-4 row">
+                        <div class="col">
+                            <input type="submit" class="btn btn-info w-100" value="Update" />
+                        </div>
+                        <div class="col">
+                            <a asp-action="HouseIndex" class="btn btn-success w-100">
+                                BACK
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                @*keep this empty*@
+            </div>
+        </div>
+
+
+    </div>
+</form>
+
+@section Scripts{
+
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+
+    }
+
+
+
+

@@ -1,0 +1,88 @@
+﻿@model IEnumerable<Buy_And_Sell.Models.Vehicle>
+@{
+    ViewData["Title"] = "Vehicles Page";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <style>
+       #Housebtn {
+      line-height: 20px;
+     font-size: 10pt;
+     margin-top: 1px;
+     margin-right: 2px;
+     position:absolute;
+     top:70px;
+     right:40px;
+ }
+      </style>
+  </head>
+
+    <body>
+         <a asp-controller="Home" asp-action="HouseIndexH" class="btn btn-primary w-30" id="Housebtn">Houses</a>
+
+        <header class="bg-light py-5">
+            <div class="container px-4 px-lg-5 my-5">
+                <div class="text-center text-Black">
+                    <h1 class="display-4 fw-bolder">List Of Our Vehicles</h1>
+                      <form method="get" asp-action="VehicleIndexH">
+        <p>
+            <input type="search" placeholder="Enter Property Name Or Model..." value="@ViewData["getproduct"]" name="prodSearch" style="width:80%;" />
+            <input type="submit" value="Search" class="btn btn-primary" />
+            <a asp-action="VehicleIndexH"> Get All Products</a>
+        </p>
+
+    </form>
+                </div>
+            </div>
+        </header>
+    <br />
+    
+        <!-- Section-->
+         <div class="row " >
+        @foreach (var item in Model)
+       {
+                <div class="col-sm-4" >
+
+        
+            <div class="container px-4 px-lg-5 mt-5"  > <!-- style="display:-ms-grid" --> 
+               
+                        <div class="card h-100 "  >
+                            <!-- Product image-->
+                            <img class="card-img-top" src="~/Images/@item.Image" alt="..."  width="400" height="300" />
+                            <!-- Product details-->
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <!-- Product name-->
+                                    <h5 class="fw-bolder">@item.Name</h5>
+                                    <h6 class="fw-lighter">@item.Model</h6>
+                                    <!-- Product price-->
+                                    $
+                                    @item.Price
+                                </div>
+                            </div>
+                            <!-- Product actions-->
+                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" asp-controller="Home" asp-route-Id="@item.VehicleId" asp-action="Detail">View Detail's</a></div>
+                            </div>
+                        </div>
+                   
+                    </div>
+                 
+                </div>
+            
+        
+        }
+        </div>
+        <!-- Footer-->
+        <footer class="py-5 bg-dark">
+            <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2022</p></div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+<!--     <script src="~/Bootstrap/js/scripts.js"></script>-->
+    </body>
+</html>
+
